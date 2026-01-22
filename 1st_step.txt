@@ -1,0 +1,25 @@
+1st step:
+
+What I’d start with (next concrete step), assuming “ease of use” and “professional 2026”
+Create the vertical slice with one museum, but set it up in the “real” architecture from day one:
+
+1 - Next.js app (App Router) + Postgres (Neon or equivalent). Add one Route Handler for reading staff data (the UI needs something stable early).
+
+2 -Define three tables: museums, staff, scrape_runs (scrape_runs is what makes this auditable and not a toy).
+
+3 - Write a scraper script that takes one museum, fetches/parses staff, validates the shape, and upserts into Postgres. Use Playwright only if you must.
+
+4 - Schedule it weekly using either Vercel Cron or GitHub Actions (pick whichever matches where you deploy first).
+
+5 - Only after the list page works and refreshes automatically, add your first visualization (even a single bar chart by role seniority is enough to prove the pipeline).
+
+
+----
+
+- Vercel for deployment and hosting (Next.js app, API routes, and scheduled cron triggers),
+
+-Prisma for database schema, migrations, and type-safe access to a Postgres database,
+
+- Cheerio for fast, lightweight scraping of server-rendered HTML staff pages,
+
+- Playwright as a fallback for JS-rendered or interaction-heavy pages, ideally run as a separate scraping worker (or via a hosted browser service) rather than inside normal Vercel request handlers.

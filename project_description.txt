@@ -1,0 +1,15 @@
+My idea is to create a web application that gets a simple database with art museums data (importantly, with a link to their staff page), scrape the pages for the names and positions and then create data visualisation. What is the most modular way to divide this into small tasks that could be easily rearranged? What should I start with? Also, it would be great to use knowledge gained from ft_transcendence, but ease of use should be my goal. Include all possible tools that can make the project easiest.
+
+It has to be possible to publish the project online or run it locally.
+
+The data should be automatically updated every week or so.
+
+User interaction only means reading the data in different ways by clicking and searching for certain keywords, maybe. That is something I'll think about later.
+
+The core of the proje of the project is to put into practice the research of sociologist Akhlaq Ahmad, in which he proved that foreign sounding names significantly decrease the possibility of being called to job interviews. 
+
+The project'e modularity should make it possible to also include later the percentage of foreign nationals in Finland and specific Finnish cities and regions to cross-reference that data with the specific museum's data.
+
+----
+
+
