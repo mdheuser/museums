@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 18, "column": 0}, "map": {"version":3,"sources":["file:///Users/mdh/Documents/museums_project/app/page.tsx"],"sourcesContent":["export default function Home() {\n  return (\n    <div>\n      <h1>Welcome to Museums Project</h1>\n      <p>This is built with Next.js + TypeScript</p>\n      <p>TESTING AUTO UPDATE</p>\n    </div>\n  );\n}"],"names":[],"mappings":";;;;;;AAAe,SAAS;IACtB,qBACE,8OAAC;;0BACC,8OAAC;0BAAG;;;;;;0BACJ,8OAAC;0BAAE;;;;;;0BACH,8OAAC;0BAAE;;;;;;;;;;;;AAGT"}}]
+}
