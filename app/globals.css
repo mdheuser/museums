@@ -1,26 +1,203 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #0a0a0a;
+  color: #e2e2e2;
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  min-height: 100vh;
+}
+
+/* Dashboard shell */
+.dashboard {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+/* Header */
+.dash-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #1e1e1e;
+}
+.dash-title {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin-bottom: 0.4rem;
+}
+.dash-subtitle {
+  color: #888;
+  font-size: 0.95rem;
+  margin-bottom: 0.25rem;
+}
+.dash-note {
+  color: #555;
+  font-size: 0.82rem;
+  font-style: italic;
+}
+
+/* Museum filter */
+.filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+.filter-btn {
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  border: 1px solid #2a2a2a;
+  background: #111;
+  color: #888;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.filter-btn:hover { border-color: #4f8ef7; color: #ccc; }
+.filter-btn.active { background: #4f8ef7; border-color: #4f8ef7; color: #fff; }
+
+/* Stat cards */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.stat-card {
+  background: #111;
+  border: 1px solid #1e1e1e;
+  border-radius: 10px;
+  padding: 1.1rem 1rem;
+  text-align: center;
+}
+.stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+.stat-label {
+  font-size: 0.78rem;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.stat-sub {
+  font-size: 0.85rem;
+  color: #4f8ef7;
+  margin-top: 0.15rem;
+}
+
+/* Charts grid */
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+.chart-card {
+  background: #111;
+  border: 1px solid #1e1e1e;
+  border-radius: 10px;
+  padding: 1.25rem 1rem 1rem;
+}
+.chart-card--wide {
+  grid-column: 1 / -1;
+}
+.chart-title {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #aaa;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 1rem;
+}
+
+/* Tooltip */
+.tooltip-box {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 6px;
+  padding: 0.5rem 0.8rem;
+}
+.tooltip-name { font-size: 0.82rem; color: #aaa; margin-bottom: 0.15rem; }
+.tooltip-value { font-size: 1rem; font-weight: 600; color: #fff; }
+
+/* Table */
+.table-section {
+  background: #111;
+  border: 1px solid #1e1e1e;
+  border-radius: 10px;
+  padding: 1.25rem 1rem;
+  margin-bottom: 2rem;
+}
+.table-wrapper { overflow-x: auto; margin-top: 1rem; }
+.emp-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+.emp-table th {
+  text-align: left;
+  padding: 0.55rem 0.75rem;
+  color: #555;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid #222;
+}
+.emp-table td {
+  padding: 0.5rem 0.75rem;
+  color: #ccc;
+  border-bottom: 1px solid #181818;
+  white-space: nowrap;
+}
+.row-even { background: #111; }
+.row-odd  { background: #0e0e0e; }
+
+.badge {
+  display: inline-block;
+  padding: 0.15rem 0.55rem;
+  border-radius: 9999px;
+  background: #1e1e2e;
+  color: #818cf8;
+  font-size: 0.75rem;
+  border: 1px solid #2e2e4e;
+}
+.museum-cell { color: #666; font-size: 0.82rem; }
+.gender-cell { font-weight: 600; }
+.gender-female { color: #ec4899; }
+.gender-male   { color: #4f8ef7; }
+.gender-unknown { color: #888; }
+
+/* Loading */
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-size: 1.2rem;
+  color: #555;
+  background: #0a0a0a;
+}
+
+/* Footer */
+.dash-footer {
+  text-align: center;
+  color: #333;
+  font-size: 0.78rem;
+  padding-top: 1rem;
+  border-top: 1px solid #1a1a1a;
+}
+
+@media (max-width: 768px) {
+  .charts-grid { grid-template-columns: 1fr; }
+  .chart-card--wide { grid-column: 1; }
+  .dash-title { font-size: 1.4rem; }
 }
